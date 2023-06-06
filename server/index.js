@@ -13,15 +13,15 @@ app.use(express.json())
 
 //middleware
 app.use(cors()) //cross origin resource sharing to allow incoming requests
+app.use(cookieParser(process.env.SECRET_TOKEN)) //configure secured cookies
 
 //index route
 app.use(`/api/auth` , require('./route/authRoute'))
-
-
+app.use(`/api/category` , require('./route/categoryRouter'))
 
 //default route
 app.all(`**` , async(req,res) => {
-    return res.status(404).json({msg: `Requested Path not found..404 Error`})
+    return res.status(404).json({msg: `Requested Path not found.. Error`})
 })
 
 //to start the server
