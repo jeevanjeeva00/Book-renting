@@ -18,6 +18,8 @@ app.use(cookieParser(process.env.SECRET_TOKEN)) //configure secured cookies
 //index route
 app.use(`/api/auth` , require('./route/authRoute'))
 app.use(`/api/category` , require('./route/categoryRouter'))
+app.use(`/api/book` , require('./route/bookRoute'))
+app.use(`/api/rent` , require('./route/rentRoute'))
 
 //default route
 app.all(`**` , async(req,res) => {

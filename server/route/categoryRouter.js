@@ -4,7 +4,6 @@ const authMiddleware = require('../middleware/authMiddleware')
 const adminAuth = require('../middleware/adminAuth')
 
 
-
 categoryRoute.get(`/all` , authMiddleware,adminAuth,categoryCtrl.getAll)
 categoryRoute.get(`/single/:id` , authMiddleware,adminAuth , categoryCtrl.getSingle)
 categoryRoute.post(`/create` , authMiddleware,adminAuth , categoryCtrl.create)
